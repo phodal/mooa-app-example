@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {mooaPlatform} from 'mooa';
 
 @Component({
@@ -7,12 +7,10 @@ import {mooaPlatform} from 'mooa';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-
   navigateToApp1() {
-   mooaPlatform.navigateTo({
-     appName: 'help',
-     router: 'home'
-   });
+    mooaPlatform.navigateTo({
+      appName: 'help',
+      router: 'home'
+    });
   }
 }
