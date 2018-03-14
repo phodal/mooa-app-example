@@ -1,6 +1,7 @@
 <nav class="navbar">
   <a [routerLink]="['/home']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Home</a>
   <a [routerLink]="['/welcome']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HomeWork</a>
+  <button (click)="navigateToApp1()">To App1</button>
 </nav>
 
 <router-outlet></router-outlet>

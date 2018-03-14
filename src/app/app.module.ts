@@ -11,7 +11,8 @@ import {mooaPlatform} from 'mooa';
 const appRoutes: Routes = [
   {path: '*', component: AppComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'welcome', component: WelcomeComponent}
+  {path: 'welcome', component: WelcomeComponent},
+  {path: '**', component: WelcomeComponent}
 ];
 
 @NgModule({

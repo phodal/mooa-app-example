@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {mooaPlatform} from 'mooa';
 
 @Component({
   selector: 'app-app1',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  navigateToApp1() {
+   mooaPlatform.navigateTo({
+     appName: 'help',
+     router: 'home'
+   });
+  }
 }
