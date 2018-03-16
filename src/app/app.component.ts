@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {mooaPlatform} from 'mooa';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-app1',
@@ -11,6 +12,14 @@ export class AppComponent {
     mooaPlatform.navigateTo({
       appName: 'help',
       router: 'home'
+    });
+  }
+
+  constructor(private router: Router) {
+    window.addEventListener('mooa.routing.change', (event: CustomEvent) => {
+      if (event.detail.app.name === 'app1') {
+        this.router.navigate([event.detail.url.replace('/app/app1/', '')]);
+      }
     });
   }
 }
