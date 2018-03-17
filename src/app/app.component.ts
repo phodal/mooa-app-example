@@ -2,11 +2,20 @@ import {Component} from '@angular/core';
 import {mooaPlatform} from 'mooa';
 import {Router} from '@angular/router';
 
+function handleRouterUpdate(router: Router, appName: string) {
+  window.addEventListener('mooa.routing.change', (event: CustomEvent) => {
+    if (event.detail.app.name === appName) {
+      router.navigate([event.detail.url.replace('/app/' + appName, '')]);
+    }
+  });
+}
+
 @Component({
   selector: 'app-app1',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   navigateToApp1() {
     mooaPlatform.navigateTo({
@@ -16,10 +25,6 @@ export class AppComponent {
   }
 
   constructor(private router: Router) {
-    window.addEventListener('mooa.routing.change', (event: CustomEvent) => {
-      if (event.detail.app.name === 'app1') {
-        this.router.navigate([event.detail.url.replace('/app/app1/', '')]);
-      }
-    });
+    handleRouterUpdate(this.router, 'app1');
   }
 }
